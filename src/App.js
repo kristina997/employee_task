@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from "./Navbar";
+import Employee from "./Page/Employee";
+import Task from "./Page/Task";
+import Home from "./Home";
+import TaskChart from "./Page/Task/TaskChart";
+import Team from "./Page/Teams";
+import { Route, Routes } from "react-router-dom";
 
-function App() {
+function App(){
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Navbar/>
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<Home />}/>
+          <Route path="/employee" element={<Employee />}/> 
+          <Route path="/task" element={<Task />}/>
+          <Route path="/chart" element={<TaskChart />}/>
+          <Route path="/team" element={<Team />}/>
+        </Routes>
+      </div>
+    </>
+
+  ) 
 }
 
-export default App;
+export default App
